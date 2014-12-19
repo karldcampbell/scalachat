@@ -1,0 +1,20 @@
+#chatBox {
+	width: 70%;
+	min-width: 300px;
+	margin-bottom: 5px;
+	padding: 5px;
+	overflow-y: scroll;
+
+	height: 70%;
+	min-height: 500px;
+background-color: #DDD;
+	border-radius: 10px;
+}
+
+#msgBox{
+	width:50%;
+}
+
+#userBox{
+	max-width: 15%;
+}
