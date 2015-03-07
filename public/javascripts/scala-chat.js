@@ -8,7 +8,7 @@ var getMessage = function(lastMessageSeen){
 		if(data){
 		var chatBox = $('#chatBox')
 		for(var i=data.length-1; i>=0; i--){
-			chatBox.append("<b>"+data[i].sender + ":</b> " + data[i].message + "<br />");
+			chatBox.prepend('<div class="chatBubble"><b>'+data[i].sender + ":</b> " + data[i].message + "</div>");
 		}
 		lastMessageSeen = data[0].id
 		chatBox.scrollTop(chatBox[0].scrollHeight)

@@ -1,14 +1,29 @@
 #chatBox {
-	width: 70%;
+	width: 80%;
+	position: relative;
+	left: 10%;
 	min-width: 300px;
+	max-width: 1000px;
 	margin-bottom: 5px;
 	padding: 5px;
-	overflow-y: scroll;
-
 	height: 70%;
 	min-height: 500px;
-background-color: #DDD;
 	border-radius: 10px;
+}
+
+div.chatBubble {
+	width: 100%;
+	padding: 5px;
+	padding-left: 7px;
+	margin: 5px;
+	border-radius: 10px;
+	background-color: #f0f0f0;
+	text-align:  left;
+}
+
+body {
+	text-align: center;
+	background-color: #e4e4e4;
 }
 
 #msgBox{

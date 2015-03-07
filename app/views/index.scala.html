@@ -5,20 +5,19 @@
 		<meta charset="utf-8" />
 		<title>Welcome to ScalaChat!</title>
 	
-	<link rel="stylesheet" href="/static/stylesheets/scala-chat.css" />	
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/static/stylesheets/scala-chat.css" />	
 	</head>
 	<body>
 	<div class="container">
 		<h2>ScalaChat</h2><h5>I'm new and improved :P</h5>
-		<div id="chatBox">
-		@msg <br />
-		</div>
 		<form class="form-inline" id="chatForm" role="form">
 			<input type="text" class="form-control" placeholder="user" size="8" id="userBox"/> 
 			<input type="text" class="form-control" placeholder="Message" id="msgBox"/>
 			<input type="submit" class="btn btn-primary" value="Send"/>
 		</form>
+		<div id="chatBox">
+		</div>
 	</div>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
