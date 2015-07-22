@@ -25,7 +25,7 @@ object MessageService {
 				WaitingRequestQueue.queueRequest(req)	
 			}
 			else{
-				p.success(msgList)
+				p.success(msgList.reverse)
 			}
 		case None =>
 			p.success(getAllMessages())

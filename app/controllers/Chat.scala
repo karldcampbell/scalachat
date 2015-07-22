@@ -23,17 +23,11 @@ implicit val messageWrites = new Writes[Message]{
 }
 case class FormMsg(user: String, message :String);
 
-val msgForm = Form(
-  mapping(
-    "user" -> text,
-    "message" -> text
-  )(FormMsg.apply)(FormMsg.unapply)
-)
 def getMessage(lastMessageSeen : Option[Int]) = Action { request =>
 	
 	try{
 		Ok(Json.toJson(Await.result(
-			MessageService.getMessages(lastMessageSeen), 55.seconds)));
+			MessageService.getMessages(lastMessageSeen), 60.seconds)));
 	}
 	catch {
 	case e: Exception =>
@@ -43,10 +37,11 @@ def getMessage(lastMessageSeen : Option[Int]) = Action { request =>
 	
 }
 
-def sendMessage() = Action { implicit request =>
-	val formData = msgForm.bindFromRequest.get
-	println(formData.user + " : " + formData.message);
-	MessageService.sendMessage(formData.user, formData.message)
+def sendMessage() = Action(parse.json) { implicit request =>
+	val user = (request.body \ "user").as[String]
+	val text = (request.body \ "text").as[String]
+	println(user + " : " + text);
+	MessageService.sendMessage(user, text)
 	Ok("")
 }
 }

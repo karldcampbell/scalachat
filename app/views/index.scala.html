@@ -1,6 +1,6 @@
 @(msg: String)
 
-<html>
+<html ng-app="scalaChat">
 	<head>
 		<meta charset="utf-8" />
 		<title>Welcome to ScalaChat!</title>
@@ -11,17 +11,19 @@
 	<body>
 	<div class="container">
 		<h2>ScalaChat</h2><h5>I'm new and improved :P</h5>
-		<form class="form-inline" id="chatForm" role="form">
-			<input type="text" class="form-control" placeholder="user" size="8" id="userBox"/> 
-			<input type="text" class="form-control" placeholder="Message" id="msgBox"/>
-			<input type="submit" class="btn btn-primary" value="Send"/>
+		<form class="form-inline" ng-controller="messageBox" role="form">
+			<input type="text" class="form-control" placeholder="user" size="8" ng-model="msg.user"/> 
+			<input type="text" class="form-control" placeholder="Message" size="60" ng-model="msg.text"/>
+			<input type="submit" class="btn btn-primary" value="Send" ng-click="send(msg)"/>
 		</form>
-		<div id="chatBox">
+		<div ng-controller="chatBoxCtlr" class="chatBox">
+			<div class="chatBubble" ng-repeat="msg in msgs | reverse"><b>{{:: msg.sender}} : </b> {{:: msg.message}}</div>
 		</div>
 	</div>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="/static/javascripts/scala-chat.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>
+	<script src="/static/javascripts/scala-chat-main.js"></script>
+	<script src="/static/javascripts/scala-chat-controllers.js"></script>
+
 	</body>
 </html>
 
